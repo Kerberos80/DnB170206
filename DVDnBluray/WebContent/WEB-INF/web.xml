@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>DVDnBluray</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- DBCP 서블릿 컨텍스트 리스너 등록 -->
+  <listener>
+    <listener-class>jdbc.DBCPInitListener</listener-class>
+  </listener>
+  <!-- DBCP 서블릿 컨텍스트 리스너의 컨텍스트 파라미터(DB 설정 정보) -->
+  <context-param>
+    <param-name>poolConfig</param-name>
+    <param-value>
+  		jdbcDriver=com.mysql.jdbc.Driver
+  		jdbcUrl=jdbc:mysql://localhost:3306/dnb?characterEncoding=utf8
+  		dbUser=son
+  		dbPassword=sonpw
+  		validationQuery=select 1
+  		minIdle=3
+  		maxTotal=30
+  		poolName=dnb
+  	</param-value>
+  </context-param>
+  
+  <!-- CharacterEncoding 필터 등록 -->
+  <filter>
+  	<filter-name>encodingFilter</filter-name>
+  	<filter-class>util.CharacterEncodingFilter</filter-class>
+  	<init-param>
+  		<param-name>encoding</param-name>
+  		<param-value>utf-8</param-value>
+  	</init-param>
+  </filter>
+  <!-- CharacterEncoding 필터 맵핑 -->
+  <filter-mapping>
+  	<filter-name>encodingFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <!-- Controller 서블릿 등록 -->
+  <servlet>
+  	<servlet-name>Controller</servlet-name>
+  	<servlet-class>mvc.controller.Controller</servlet-class>
+  	<init-param>
+  		<param-name>configFile</param-name>
+  		<param-value>/WEB-INF/commandHandler.properties</param-value>
+  	</init-param>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  <!-- Controller 맵핑 -->
+  <servlet-mapping>
+  	<servlet-name>Controller</servlet-name>
+  	<url-pattern>*.DnB</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
