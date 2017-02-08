@@ -1,4 +1,4 @@
-package DnB.Controller;
+package mvc.controller;
 
 import java.io.FileReader;
 import java.io.IOException;
