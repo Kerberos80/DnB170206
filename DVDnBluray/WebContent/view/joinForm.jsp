@@ -24,6 +24,10 @@
 	.btn-reset:hover { color: #fff; background-color: #449d44; border-color: #398439; }	
 </style>
 
+<!-- JavaScript -->
+<script type="text/javascript">
+</script>
+
 </head>
 <body>
 	<form action="" method="post">
@@ -60,7 +64,5 @@
 			</tr>			
 		</table>
 	</form>
-	
-
 </body>
 </html>
