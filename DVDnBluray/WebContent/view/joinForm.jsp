@@ -26,6 +26,9 @@
 
 <!-- JavaScript -->
 <script type="text/javascript">
+// 패스워드 영숫자, 특수문자 조합 유효성 검사 모듈 추가 할 것
+// 패스워드 확인 불일치 시 포커서 이동 모듈 추가 할 것
+// 등록버튼 클릭시 action 속성 url 주소 동적으로 만들 것 
 </script>
 
 </head>
