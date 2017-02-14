@@ -19,8 +19,7 @@ public class MemberDAO {
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 		
-		try {
-			
+		try {			
 			query = "select * from member where id = ?";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, id);
@@ -34,13 +33,12 @@ public class MemberDAO {
 													resultSet.getString("password"),
 													resultSet.getInt("firstSSN"),
 													resultSet.getInt("secondSSN"),
-													resultSet.getString("phone"),
+													resultSet.getString("cellPhone"),
 													resultSet.getString("email"),
 													resultSet.getString("address") );
-			}
-			
+			}			
 			return member;			
-		} finally {
+		} finally { // 자원 해제
 			JdbcUtil.close(resultSet);
 			JdbcUtil.close(preparedStatement);			
 		} // end of finally
@@ -59,7 +57,7 @@ public class MemberDAO {
 			preparedStatement.setString( 3, member.getPassword() );
 			preparedStatement.setInt( 4, member.getFirstSSN() );
 			preparedStatement.setInt( 5, member.getSecondSSN() );
-			preparedStatement.setString( 6, member.getPhone() );
+			preparedStatement.setString( 6, member.getCellPhone() );
 			preparedStatement.setString( 7, member.getEmail() );
 			preparedStatement.setString( 8, member.getAddress() );
 		}
