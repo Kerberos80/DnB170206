@@ -73,7 +73,7 @@ public class Controller extends HttpServlet {
 		
 		// 핸들러 호출
 		String viewPage = null;
-		try { viewPage = 	commandHandler.process(request, response); }
+		try { viewPage = commandHandler.process(request, response); }
 		catch(Throwable e) { throw new ServletException(e); }
 		
 		// 해당 view 로 이동
