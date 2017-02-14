@@ -27,6 +27,6 @@ public class JoinService {
 			JdbcUtil.rollback(connection);
 			throw new RuntimeException(e);			
 		} // end-of-try catch
-	}
+	} // end-of-join()
 
 }
