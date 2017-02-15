@@ -1,9 +1,6 @@
 <!-- 2017. 1. 12. -->
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%
-	request.setCharacterEncoding("utf-8");
-%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,44 +10,68 @@
 <!-- CSS -->
 <style type="text/css">
 * { 	padding: 0 ; margin: 0 ; 
-		font-family: 	'나눔고딕',NanumGothic,Malgun Gothic,AppleSDGothicNeo,Apple Gothic,dotum,
-							Tahoma,Geneva,Helvetica,sans-serif; }
+		font-family: '나눔고딕',NanumGothic,Malgun Gothic,AppleSDGothicNeo,Apple Gothic,dotum, 
+						Tahoma,Geneva,Helvetica,sans-serif; }
 body { word-wrap: break-word; }
 section { display: block; /*margin: 0; padding: 0;*/ border: 0;}
-div { display: block; }
+/*div { display: block; }*/
 .xm {	width: 729px; position: relative; top: 30px; left: 10%; }
 .xm h1 { font-size: 22px; }
 .xm, .xm input, .xm textarea, .xm select, .xm button, .xm table { font-size: 13px; }
-.xm .agreement { border: 1px solid #ddd; padding: 15px 15px 10px 15px; border-radius: 5px; 
-						background: #f8f8f8; margin-bottom: 15px; }
+.xm .agreement { border: 1px solid #ddd; padding: 15px 15px 10px 15px; border-radius: 5px; background: #f8f8f8; 
+						margin-bottom: 15px; }
 .xm .agreement>.text { max-height: 200px; overflow: auto; }
 .xm .agreement>.confirm { padding: 10px 0 0 0; margin: 10px 0 0 0; border-top: 1px dotted #ccc; }
 .xm label .xm input, .xm button, .xm select, .xm textarea { /*.xm input, .xm button, .xm select, .xm textarea*/ 
 	display: block; margin-bottom: 5px; font-weight: normal; line-height: 20px; cursor: default; }
 .xm .form-horizontal input { display: inline-block; margin-bottom: 0; vertical-align: middle; }	/*인풋태그와 동레벨 요소 높이 맞추기*/
-.xm .form-horizontal .control-group:before, .xm .form-horizontal .control-group:after {
-    display: table; line-height: 0; content: ""; }	
+.xm .form-horizontal .control-group:before, .xm .form-horizontal .control-group:after { display: table; line-height: 0; content: ""; }	
 .xm .form-horizontal .control-group:after { clear: both; }
 .xm .form-horizontal .control-label { float: left; width: 160px; padding-top: 5px; text-align: right; }
 .xm em { font-style: normal; }
-.xm .form-horizontal .controls { margin-left: 180px; }
-.xm .form-horizontal input  { /*.xm .form-horizontal textarea, .xm .form-horizontal select, .xm .form-horizontal .help-inline, .xm .form-horizontal .input-prepend, .xm .form-horizontal .input-append*/
+.xm .form-horizontal .controls { margin-left: 180px; margin-bottom: 5px;}
+.xm .form-horizontal input, .xm .form-horizontal select  { /*.xm .form-horizontal textarea, .xm .form-horizontal .help-inline, .xm .form-horizontal .input-prepend, .xm .form-horizontal .input-append*/
     display: inline-block; margin-bottom: 0; vertical-align: middle; }
-.xm input[type="text"] {
-    background-color: #ffffff; border: 1px solid #cccccc; height: 20px; padding: 4px 6px; line-height: 20px; color: #555555; 
-    border-radius: 4px;
-    -webkit-border-radius: 4px; /* 익스플로러 */
-    -moz-border-radius: 4px; /* 파이어폭스 */
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); /* 익스플로러 */ 
-    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); /* 파이어폭스 */   
-    transition: border linear 0.2s, box-shadow linear 0.2s;
-    -webkit-transition: border linear 0.2s, box-shadow linear 0.2s; /* 익스플로러 */
-    -moz-transition: border linear 0.2s, box-shadow linear 0.2s; /* 파이어폭스 */
-    -o-transition: border linear 0.2s, box-shadow linear 0.2s; /* 오페라 */ }
-.xm .controls input { margin-left: 0; width: 206px; }	
-	
-
+.xm input[type="text"], .xm input[type="password"], .xm input[type="email"], .xm input[type="text"] {
+    background-color: #ffffff; border: 1px solid #cccccc; height: 20px; padding: 4px 6px; line-height: 20px; color: #555555;
+    margin-left: 0; width: 206px;
+    border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);   
+    transition: border linear 0.2s, box-shadow linear 0.2s; -webkit-transition: border linear 0.2s, box-shadow linear 0.2s; -moz-transition: border linear 0.2s, box-shadow linear 0.2s; -o-transition: border linear 0.2s, box-shadow linear 0.2s; }
+.xm input[type="file"], .xm input[type="image"], .xm input[type="submit"], .xm input[type="reset"], .xm input[type="button"], .xm input[type="radio"], .xm input[type="checkbox"] {
+    width: auto; }    
+.xm input[readonly] { cursor: not-allowed; background-color: #eeeeee; }
+.xm .btn {
+    font-size: 12px; font-family: inherit; text-align: center; text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75); 
+    /*vertical-align: middle;*/ cursor: pointer; color: #333333;
+    margin: 0; padding: 0 12px!important; overflow: visible; text-decoration: none!important; line-height: 24px!important; 
+    background-color: white; background-image: linear-gradient(to bottom, #ffffff, #e6e6e6); background-repeat: repeat-x;
+    border: 1px solid #cccccc; border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); border-bottom-color: #b3b3b3;
+    border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);    
+}
+.xm input.btn { height: 26px!important; }
+.xm .btn:hover, .xm .btn:focus {
+    color: #333333; background-position: 0 -15px;
+    transition: background-position 0.1s linear; -webkit-transition: background-position 0.1s linear; -moz-transition: background-position 0.1s linear; -o-transition: background-position 0.1s linear; }
+.xm .btn:hover, .xm .btn:focus, .xm .btn:active, .xm .btn.active, .xm .btn.disabled, .xm .btn[disabled] { 
+	background-color: #e6e6e6; }	
+.xm .btnArea { clear: both; margin: 10px 0; padding: 0; text-align: right; zoom: 1; }
+.xm .btnArea:after { clear: both; display: block; content: ""; }
+.xm .btn-inverse {
+    color: #ffffff!important; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    background-image: linear-gradient(to bottom, #444444, #222222);
+    background-image: -moz-linear-gradient(top, #444444, #222222);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#444444), to(#222222));
+    background-image: -webkit-linear-gradient(top, #444444, #222222);
+    background-image: -o-linear-gradient(top, #444444, #222222);
+    background-repeat: repeat-x;   
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);  
+}
+.xm .pull-right { float: right; }
+.xm .pull-left { float: left; }
+.xm a { text-decoration: none; }    
+ /* .xm .controls input { margin-left: 0; width: 206px; } */
 </style>
 
 <!-- JavaScript -->
@@ -238,9 +259,9 @@ div { display: block; }
 				</div>
 			</div>
 			<div class="control-group">
-				<label for="birthday" class="control-label"><em style="color: red">*</em> 생일</label>
+				<label for="birthday" class="control-label"><em style="color: red">*</em> 주민번호 앞 자리</label>
 				<div class="controls">
-					<input type="hidden" name="birthday" id="date_birthday" value="">
+					<input type="hidden" name="birthday" id="date_birthday" value="">					
 					<input type="text" placeholder="YYYY-MM-DD" name="birthday_ui" class="inputDate hasDatepicker" id="birthday" value="" readonly="readonly">
 					<input type="button" value="삭제" class="btn dateRemover">
 				</div>
