@@ -262,7 +262,7 @@ section { display: block; /*margin: 0; padding: 0;*/ border: 0;}
 				<label for="birthday" class="control-label"><em style="color: red">*</em> 생년월일 </label>
 				<div class="controls">
 					<input type="hidden" name="birthday" id="date_birthday" value="">					
-					<input type="text" placeholder="YYYYMMDD" name="birthday_ui" class="inputDate hasDatepicker" id="birthday" value="" readonly="readonly">
+					<input type="text" placeholder="YYYYMMDD" name="birthday_ui" class="inputDate hasDatepicker" id="datePicker" value="" readonly="readonly">
 					<input type="button" value="삭제" class="btn dateRemover">
 				</div>
 			</div>
@@ -346,6 +346,7 @@ section { display: block; /*margin: 0; padding: 0;*/ border: 0;}
 			(adsbygoogle = window.adsbygoogle || []).push({});
 		</script>
 		<script>
+			/*
 			jQuery(function($){
 				// label for setup
 				$('.control-label[for]').each(function(){
@@ -363,11 +364,11 @@ section { display: block; /*margin: 0; padding: 0;*/ border: 0;}
 					};
 					$.extend(option,$.datepicker.regional['ko']);
 					$(".inputDate").datepicker(option);
-					$(".dateRemover").click(function() {
+					$(".dateRemover").click(function() { // 생년월일 값 지우는 스크립트
 						$(this).prevAll('input').val('');
 						return false;});
 				});
-			})(jQuery);
+			})(jQuery); */
 		</script>
 	</section>
 </body>
