@@ -1,0 +1,117 @@
+@CHARSET "UTF-8";
+
+/* 회원가입 입력 테이블 */
+.joinTable * { /* content 영역 가로크기 : 849px */
+	padding: 0;
+	margin: 0
+}
+.joinTable {
+	/*border-collapse: collapse;*/
+	width: 729px;
+	position: relative;
+	top: 30px;
+	left: 10%;
+	font-size: 13px;
+}
+.joinTable, .joinTable tr, .joinTable td {
+	/*border: 1px solid #bcbcbc;*/	
+}
+.joinTable h1 {
+	font-size: 22px;
+	margin-bottom: 10px;
+}
+
+/* 이용 약관 */
+.joinTable .agreement {
+	border: 1px solid #ddd;
+	padding: 15px 15px 10px 15px;
+	border-radius: 5px;
+	background: #f8f8f8;
+	margin-bottom: 10px;
+}
+.joinTable .agreement>.text {
+	max-height: 200px;
+	overflow: auto;
+}
+.joinTable .agreement>.confirm {
+	padding: 10px 0 0 0;
+	margin: 10px 0 0 0;
+	border-top: 1px dotted #ccc;
+}
+
+/* 회원 가입 정보 입력 란 */
+.joinTable .control-group {
+	height: 40px; /* 입력란 row 의 높이 */
+}
+.joinTable input, .joinTable button  { /*[class="ui-datepicker-trigger"]*/	
+	vertical-align: middle;
+}
+.joinTable .control-label {
+	text-align: right;
+	padding-right: 20px;
+}
+.joinTable .control-label em {
+	padding-right: 5px;
+}
+.joinTable input[type="text"], .joinTable input[type="password"], .joinTable input[type="email"] {
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+	height: 20px;
+	padding: 4px 6px;
+	color: #555555;
+	width: 206px;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	transition: border linear 0.2s, box-shadow linear 0.2s;
+	-webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+	-moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+	-o-transition: border linear 0.2s, box-shadow linear 0.2s;
+}
+.joinTable .submit-btn {
+	text-align: right;
+}
+
+/* 회원 가입 정보 입력 란 - 버튼 */
+.joinTable .btn {
+	padding: 6px 12px;
+	font-size: 14px;
+	font-weight: 400;
+	ine-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 4px;
+}
+.joinTable .btn-submit {
+	color: #fff;
+	background-color: #d9534f;
+	border-color: #d43f3a;
+}
+.joinTable .btn-submit:hover {
+	color: #fff;
+	background-color: #c9302c;
+	border-color: #ac2925;
+}
+.joinTable .btn-reset {
+	color: #fff;
+	background-color: #5cb85c;
+	border-color: #4cae4c;
+}
+.joinTable .btn-reset:hover {
+	color: #fff;
+	background-color: #449d44;
+	border-color: #398439;
+}

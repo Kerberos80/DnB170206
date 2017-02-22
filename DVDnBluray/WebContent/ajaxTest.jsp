@@ -1,5 +1,5 @@
 <!-- 2017. 2. 22. -->
-<%@ page language="java" contentType="text/html; charset=UTF-8" PageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html>
@@ -45,8 +45,13 @@
 			
 			$.ajax({
 				url: 'getID.ajax',
-				success: function() {
-					alert("통신 성공!!");
+				method: 'GET', // 'POST', 'GET', 'PUT'
+                dataType: 'json', // 서버로 부터 받을 데이터 타입 : 'xml' or 'json' or 'script' or 'html'
+                cache: false, // true or false
+				success: function(data) {
+					// <- data.id or <- data["id"] 
+					// var receivedID = data.id; // JSONobject 데이터출력
+					alert("넘겨 받은 ID : " + receivedID);
 				},
 				error: function(x,e) {
 					alert(x.status);

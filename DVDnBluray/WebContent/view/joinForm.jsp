@@ -17,7 +17,7 @@
 <!-- CSS -->
 <style type="text/css">
 	/* 회원가입 입력 테이블 */
-	table { border-collapse: collapse; } /* content 가로크기 1297px*/
+	table { border-collapse: collapse; } /* content 가로크기 849px*/
 	table, tr, td { border: 1px solid #bcbcbc; }
 	.left_title { text-align: right; widht: 30%;}
 	

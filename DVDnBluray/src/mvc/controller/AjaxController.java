@@ -33,7 +33,7 @@ public class AjaxController extends HttpServlet {
 		System.out.println(jsonString);
 		
 		response.setContentType("application/x-json; charset=UTF-8");
-		response.getWriter().print(jsonString);
+		response.getWriter().print(jsonObject);
 		// System.out.println("jsonObject : " + jsonObject );
 				
 		return null;		
