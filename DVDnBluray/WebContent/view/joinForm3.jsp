@@ -7,6 +7,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
+<!-- jQuery 기본 JS 파일 -->
+<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/js/google/jquery/1.7.1/jquery.min.js">   --%>
+<!-- jQuery UI 라이브러리 JS 파일(datePicker) -->
+<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/js/jquery-ui/1.8.18/datePicker/jquery-ui.min.js"> --%>
+<!-- jQuery UI CSS 파일(datePicker) -->
+<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/css/datePicker/jquery-ui.css"> --%>
+
 <!-- CSS -->
 <style type="text/css">
 * { 	padding: 0 ; margin: 0 ; 
@@ -40,7 +47,7 @@ section { display: block; /*margin: 0; padding: 0;*/ border: 0;}
     transition: border linear 0.2s, box-shadow linear 0.2s; -webkit-transition: border linear 0.2s, box-shadow linear 0.2s; -moz-transition: border linear 0.2s, box-shadow linear 0.2s; -o-transition: border linear 0.2s, box-shadow linear 0.2s; }
 .xm input[type="file"], .xm input[type="image"], .xm input[type="submit"], .xm input[type="reset"], .xm input[type="button"], .xm input[type="radio"], .xm input[type="checkbox"] {
     width: auto; }    
-.xm input[readonly] { cursor: not-allowed; background-color: #eeeeee; }
+/* .xm input[readonly] { cursor: not-allowed; background-color: #eeeeee; } */ /* 생년월일 필드 css */
 .xm .btn {
     font-size: 12px; font-family: inherit; text-align: center; text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75); 
     /*vertical-align: middle;*/ cursor: pointer; color: #333333;
@@ -74,8 +81,59 @@ section { display: block; /*margin: 0; padding: 0;*/ border: 0;}
  /* .xm .controls input { margin-left: 0; width: 206px; } */
 </style>
 
+<!-- jQuery UI CSS파일 --> 
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />  
+<!-- jQuery 기본 js파일 -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
+<!-- jQuery UI 라이브러리 js파일 -->
+<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+
 <!-- JavaScript -->
-<script type="text/javascript"> 
+<script type="text/javascript">
+	$(function() {
+		//$('#testDatepicker').val($.datepicker.formatDate('yymmdd', new Date())); // 오늘날짜 셋팅 하기
+		$( "#datePicker" ).datepicker({
+        	showOn: 'both', // 버튼, 텍스트필드, 캘린더 모두 표시 'both','button','text'
+        	showAnim: 'show', // 애니매이션 효과
+        		
+        	yearRange: 'c-100:c+10', // currentYear-100 ~ currentYear+10
+        
+			changeMonth: true, // 월 셀렉트 박스 
+		    changeYear: true, // 연 셀렉트 박스
+		    nextText: '다음 달', // < : 캡션
+		    prevText: '이전 달', // > : 캡션
+        
+		    dayNames: ['월요일', '화요일', '수요일', '목요일', '금요일', '토요일', '일요일'], // 요일
+		    dayNamesMin: ['월', '화', '수', '목', '금', '토', '일'],                
+		    monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'], // 월
+		    monthNamesShort: ['1','2','3','4','5','6','7','8','9','10','11','12'],
+        
+		    showButtonPanel: true, // 오늘 날짜, 닫기 버튼 패널 활성화
+		    currentText: '오늘', // 오늘 날짜 버튼
+		    closeText: '닫기', // 닫기 버튼
+		    dateFormat: "yymmdd" // 날짜 포맷       
+		});
+		
+		$(".ui-datepicker-trigger").click(function() {
+			// datepicker 오픈 전의 CSS를 지정
+			var position   = $("#ui-datepicker-div").css("position");
+			var top          = $("#ui-datepicker-div").css("top");
+			var left          = $("#ui-datepicker-div").css("left");
+			var display     = $("#ui-datepicker-div").css("display");
+
+			// datepicker 오픈 시 자동으로 변경되는 CSS 제거
+			$("#ui-datepicker-div").css("z-index", "");
+
+			// 자동 지정되었던 CSS를 다시 지정
+			$("#ui-datepicker-div").attr("style", "z-index:9999 !important");
+
+			// 저장했던 CSS 다시 지정
+			$("#ui-datepicker-div").css("position", position);
+			$("#ui-datepicker-div").css("top", top);
+			$("#ui-datepicker-div").css("left", left);
+			$("#ui-datepicker-div").css("display", display);
+		});		
+	});
 </script>
 
 </head>
@@ -262,8 +320,8 @@ section { display: block; /*margin: 0; padding: 0;*/ border: 0;}
 				<label for="birthday" class="control-label"><em style="color: red">*</em> 생년월일 </label>
 				<div class="controls">
 					<input type="hidden" name="birthday" id="date_birthday" value="">					
-					<input type="text" placeholder="YYYYMMDD" name="birthday_ui" class="inputDate hasDatepicker" id="datePicker" value="" readonly="readonly">
-					<input type="button" value="삭제" class="btn dateRemover">
+					<input type="text" placeholder="YYYYMMDD" name="birthday_ui" class="inputDate hasDatepicker" id="datePicker">
+<!-- 					<input type="button" value="삭제" class="btn dateRemover"> -->
 				</div>
 			</div>
 			<div class="control-group">
@@ -330,21 +388,9 @@ section { display: block; /*margin: 0; padding: 0;*/ border: 0;}
 			<p>3. 위 규칙중 위반이 되는 콘텐츠는 통보 없이 바로 삭제 될수 있습니다.</p>
 			<p>4. 다중 가입은 허용하지 않습니다.</p>
 			<p>5. 가입을 잘못한 경우는 운영진에게 쪽지를 이용하여 삭제 요청을 하셔야만 합니다.</p>
-		</div>
-		<!-- 가입 공지 끝 -->
+		</div>		
+		<!-- 가입 공지 끝 -->		
 		
-		<script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>		
-		<!-- 일치하는 콘텐츠 728 x 90 리더보드 -->
-		<ins class="adsbygoogle" style="display: inline-block; width: 728px; height: 90px" data-ad-client="ca-pub-2627651582757014" data-ad-slot="2791016204" 	data-adsbygoogle-status="done">
-			<ins id="aswift_2_expand" 	style="display: inline-table; border: none; height: 90px; margin: 0; padding: 0; position: relative; visibility: visible; width: 728px; background-color: transparent">
-				<ins id="aswift_2_anchor" style="display: block; border: none; height: 90px; margin: 0; padding: 0; position: relative; visibility: visible; width: 728px; background-color: transparent">
-					<iframe width="728" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_2" name="aswift_2" style="left: 0; position: absolute; top: 0;"></iframe>
-				</ins>
-			</ins>
-		</ins>
-		<script>
-			(adsbygoogle = window.adsbygoogle || []).push({});
-		</script>
 		<script>
 			/*
 			jQuery(function($){
