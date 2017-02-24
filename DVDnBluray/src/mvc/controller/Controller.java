@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import mvc.command.CommandHandler;
 import mvc.command.NullHandler;
@@ -55,6 +56,14 @@ public class Controller extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		process(request, response);
+		
+		/* ******************* 세션 사용법 *********************************************************
+		 * HttpSession session = request.getSession();
+		 * session.setAttribute(arg0, arg1); // String arg0 : 속성으로 사용할 이름, Object agr1 : attribute의 값
+		 * String someFiled = (String)session.getAttribute("attrName"); // 리턴타입이 Object 이므로 원래의 타입으로 캐스팅해야함
+		 * session.removeAttribute("attrName"); // 세션에 저장된 속성 지우기
+		 * session.invalidate(); // 세션 종료
+		 * ************************************************************************************* */
 	}
 	
 	// request 분석 -> handler 호출 -> view 로 이동 

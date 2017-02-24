@@ -1,5 +1,6 @@
 <!-- 2017. 1. 10. -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html>
@@ -24,19 +25,38 @@
 		<div id="Sidebar">
 			
 			<div id="LoginSection">
-			<jsp:include page="/view/loginForm.jsp" flush="false"></jsp:include>
-<!-- 			LoginSection								 -->	
+				<c:choose>
+					<c:when test="${empty sessionScope.userID}">
+						<jsp:include page="/view/loginForm.jsp" flush="false"></jsp:include>					
+					</c:when>
+					<c:otherwise>
+						<jsp:include page="/view/loginned.jsp" flush="false"></jsp:include>
+					</c:otherwise>
+				</c:choose>																		
 			</div>
 			
 			<div id="MenuSection">
-			MenuSection
+				<c:choose>
+					<c:when test="${empty sessionScope.userID}">
+						<jsp:include page="/view/defaultMenu.jsp" flush="false"></jsp:include>
+					</c:when>
+					<c:otherwise>
+						<jsp:include page="/view/myMenu.jsp" flush="false"></jsp:include>
+					</c:otherwise>
+				</c:choose>			
 			</div>
 								
 		</div>
 		
 		<div id="Content">
-<!-- 			Content -->
-			<jsp:include page="/view/joinForm.jsp" flush="false"></jsp:include>			
+			<c:choose>
+				<c:when test="${empty sessionScope.currentContent}">
+					<jsp:include page="/view/mainContent.jsp" flush="false"></jsp:include>
+				</c:when>
+				<c:otherwise>
+					<jsp:include page="/view/${sessionScope.currentContent}" flush="false"></jsp:include>
+				</c:otherwise>
+			</c:choose>			
 		</div>		
 		
 		<div id="Footer">
