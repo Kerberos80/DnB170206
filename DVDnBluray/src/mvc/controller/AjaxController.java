@@ -26,9 +26,11 @@ public class AjaxController extends HttpServlet {
 		JSONObject jsonObject = new JSONObject();
 		JSONArray jsonArray = new JSONArray();			
 		
-		jsonObject.put("id", "kerberos");
-		// jsonArray.add(jsonObject);
+		//jsonObject.put("id", "kerberos");
+		jsonObject.put("id", "");
 		String jsonString = jsonObject.toJSONString();
+		
+		// jsonArray.add(jsonObject);
 		// String jsonArrayString = jsonArray.toJSONString();		
 		System.out.println(jsonString);
 		

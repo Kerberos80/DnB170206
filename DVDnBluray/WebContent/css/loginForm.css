@@ -1,0 +1,74 @@
+@CHARSET "UTF-8";
+
+/* loginForm.jsp CSS*/
+.login_wrap {
+	font-family: Dotum,'돋움',Helvetica,AppleSDGothicNeo,sans-serif; 
+	font-size: 12px;
+	position: relative; 
+	left: 17%; 
+	padding: 5px; 
+	width: 62%; /*width: 185px;*/ 
+	height: 85px;
+	/*border: 1px solid #dcdcdc;*/
+	background-color: #f8f8f8; 
+	background: #f8f8f8; 
+}
+.login_wrap .login { 
+	position: relative; 
+	height: 90px; 
+}
+.login_wrap .login fieldset { 
+	border: 0; 
+}
+.login_wrap .login .blind { 
+	visibility: hidden; 
+	overflow: hidden; 
+	position: absolute; 
+}
+.login_wrap .login .htmlarea { 
+	position: relative; 
+	width: 122px; 
+	height: 55px; 
+}
+.login_wrap .login .input_box { 
+	position: relative; 
+	width: 121px; 
+	height: 26px; 
+	border: 1px solid #bebebe; 
+	border-right: 0; 
+}
+.login_wrap .login .input_box:first-child { 
+	border-bottom: 0; 
+}
+.login_wrap .login .input_box .int {
+	position: relative; 
+	width: 116px; 
+	height: 21px; 
+	padding: 3px 0 2px 5px;
+	border: 0; 
+	line-height: 16px; 
+	font-size: 12px; 
+}
+.login_wrap .login .btn_login { 
+	position: relative/*absolute*/; 
+	left: 122px; 
+	top: -54px; 
+	width: 64px; 
+	height: 53px; 
+}
+.login_wrap .login .btn_login input {
+	width: 64px; 
+	height: 53px; 
+	border: solid 1px #c9cac9; 
+	background: #fdfdfd;
+	font-size: 12px; 
+	cursor: pointer; 
+	vertical-align: middle; 
+}
+.login_wrap .login .btn_lnk { 
+	position: relative; 
+	top: -45px; 
+}
+.login_wrap .login .btn_lnk a, .login_wrap .login .btn_lnk a:visited { 
+	color: darkgrey; 
+}
